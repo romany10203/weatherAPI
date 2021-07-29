@@ -1,0 +1,107 @@
+<div class="main mt-3 container-fluid">
+    <div class="container">
+        <div class="row dt">
+            <div class="col-md-6">
+                <p class="h4">{{currentDate | date:'fullDate'}}</p>
+            </div>
+            <div class="col-md-6">
+                <p class="h4 text-end">{{currentDate | date:'h:mm a'}}</p>
+            </div>
+        </div>
+        <div>
+            <label for="">Enter a city</label>
+            <div class="row">
+                <div class="col-md-4">
+                    <input (keyup)="getWeatherData($event)" value="cairo" class="form-control form-control-sm">
+                </div>
+            </div>
+        </div>
+        <div class="" *ngIf="foundCity">
+            <div class="container">
+                <p class="cityName">
+                    {{cityWeather.name}},
+                    {{cityWeather.sys.country}}
+                </p>
+            </div>
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-12 col-md-4 col-sm-4">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-12">
+                                <p class="temp">{{cityWeather.main.temp | transformTemp }}&deg;</p>
+                            </div>
+                            <div class="col-lg-6 col-md-12">
+                                <div class="tempDesc">
+                                    <img [src]="imgUrl" class="text-center img-fluid" alt="">
+                                    <p class="h4">{{cityWeather.weather[0].description}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-8 col-sm-8">
+                        <div class="moreData w-100 m-auto">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-12">
+                                    <div class="border rounded p-3 m-3">
+                                        <div class="d-flex justify-content-between">
+                                            <p>Wind</p>
+                                            <p class="pr-4">{{cityWeather.wind.speed}} m/s 
+                                                <img
+                                                [style.transform]="rotate"
+                                                src="../../assets/Weather API task/assets/icon-wind-direction.svg">
+                                            </p>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <p>Humidity</p>
+                                            <p>{{cityWeather.main.humidity}}%</p>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <p>Pressure</p>
+                                            <p>{{cityWeather.main.pressure}} h/a</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-8 moreDays col-md-12 text-center">
+                                    <div class="row mt-2 justify-content-center px-3">
+                                        <div *ngFor="let day of moreDays" class="days mb-1 col-lg-3 col-md-4 col-sm-6 col-6">
+                                            <div class="row">
+                                                <div class="col-md-12 col-12 ">
+                                                    <span class="small">{{day.dt_txt | date:'hh:mm a'}}</span>
+                                                </div>
+                                                <div class="col-md-12 col-12">
+                                                    <img style="width:75px" class="moreDImg small m-auto img-fluid" src="https://openweathermap.org/img/wn/{{day.weather[0].icon}}@2x.png" alt="">
+                                                </div>
+                                                <div class="col-md-12 col-12">
+                                                    <span class="small">
+                                                        {{day.main.temp_max | transformTemp}}&deg;/
+                                                        {{day.main.temp_min | transformTemp}}&deg;
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-center text-muted badge w-100 py-2">Data provided by OpenWeather.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-3 d-flex text-center justify-content-between">
+                <div>
+                    <span>Sunrise</span>
+                    <span class="d-block">{{cityWeather.sys.sunrise *1000 | date:'shortTime'}}</span>
+                    <img src="../../assets/Weather API task/assets/icon-sunrise.svg" alt="">
+                </div>
+                <div>
+                    <span>Sunset</span>
+                    <span class="d-block">{{cityWeather.sys.sunset *1000 | date:'shortTime'}}</span>
+                    <img src="../../assets/Weather API task/assets/icon-sunset.svg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="foundCity" class="mt-3 btBorder"></div>
