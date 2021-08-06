@@ -1,0 +1,30 @@
+.weather{
+    background-color: #070A43;
+    border-radius:5px;
+    border:1px solid #F4F4F4;
+}
+
+.temp{
+    font-size:23px;
+}
+
+.desc{
+    font-size: 21;
+}
+
+.btn-primary{
+    background-color: #070A43;
+    border: #070A43;
+}
+
+.btBorder{
+    background-color:#070A43;
+    background-attachment: fixed;
+    height:35px;
+    border-top: 2px solid #F4F4F4;
+    border-radius: 50em  50em 0 0;
+}
+/* 
+.degs{
+    background-color: #070A43;
+} */

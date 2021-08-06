@@ -1,0 +1,10 @@
+
+.navbar{
+    background-color:#070A43;
+}
+
+@media screen and (max-width:767px) {
+    .dt p{
+        text-align: center !important;
+    }
+}

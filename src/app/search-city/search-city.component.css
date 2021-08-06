@@ -1,0 +1,84 @@
+.form-control-sm{
+    color:#F4F4F4;
+    background-color:#070A43;
+    border:none;
+}
+
+.cityName{
+    font-size: 25px;
+    font-weight: 300;
+}
+.moreDImg{
+    display: block;
+}
+.temp{
+    font-weight: 400;
+    font-size: 100px;
+}
+
+.moreData{
+    background-color:#070A43;
+    border-radius: 4px;
+}
+
+.tempDesc{
+    text-align:end;
+}
+
+.btBorder{
+    background-color:#070A43;
+    background-attachment: fixed;
+    height:35px;
+    border-top: 2px solid #F4F4F4;
+    border-radius: 50em  50em 0 0;
+}
+
+.imgMod{
+    width:70px;
+}
+
+@media screen and (max-width:991px) {
+    .tempDesc,.temp{
+        text-align:center !important;
+    }
+    .temp{
+        font-size:70px;
+    }
+    .tempDesc img{
+        width: 150px;
+    }
+    .imgMod{
+        width:100px !important;
+    }
+}
+
+.form-select{
+    background-color: #070A43;
+    background-image: none;
+    color:#F4F4F4;
+}
+
+@media screen and (max-width:767px) {
+    .temp{
+        font-size:60px;
+    }
+    .dt p{
+        text-align: center !important;
+    }
+}
+
+@media screen and (max-width:575px) {
+    .temp{
+        font-size:80px;
+    }
+    /* .moreData{
+        display: none;
+    } */
+}
+
+@media screen and (max-width:317px) {
+    .days{
+        width:100%;
+        border: 1px solid #F4F4F4;
+    }
+}
